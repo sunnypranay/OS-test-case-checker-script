@@ -1,1 +1,1 @@
-wis-tar: tar-file file […]
+wis-tar: tar-file file [...]

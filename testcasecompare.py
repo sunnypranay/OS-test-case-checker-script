@@ -10,7 +10,7 @@ for i in range(1, 5):
     program_output = open(filename, "r")
 
     # compare original output and program output
-    if original_output.read() == program_output.read():
+    if original_output.read().strip() == program_output.read().strip():
         print("Test case wis-grep -", i,"pass")
         test_case_count += 1
     else:
@@ -29,7 +29,7 @@ for i in range(1,3):
     program_output = open(filename, "r")
 
     # compare original output and program output
-    if original_output.read() == program_output.read():
+    if original_output.read().strip() == program_output.read().strip():
         print("Test case wis-tar -", i,"pass")
         test_case_count += 1
     else:
@@ -38,25 +38,32 @@ for i in range(1,3):
     original_output.close()
     program_output.close()
 
-program_output_1 = open("testcase-1.txt", "r")
-program_output_2 = open("testcase-2.txt", "r")
-original_output_1 = open("./original-test-case-file/testcase-1.txt", "r")
-orginal_output_2 = open("./original-test-case-file/testcase-2.txt", "r")
-
 print_status = False
-# compare original output and program output
-if original_output_1.read() == program_output_1.read() and orginal_output_2.read() == program_output_2.read():
-    print("Test case wis-tar - 3 pass")
-    test_case_count += 1
-    print_status = True
-else:
+try:
+    program_output_1 = open("testcase-1.txt", "r")
+    program_output_2 = open("testcase-2.txt", "r")
+    original_output_1 = open("./original-test-case-file/testcase-1.txt", "r")
+    orginal_output_2 = open("./original-test-case-file/testcase-2.txt", "r")    
+    # compare original output and program output
+    if original_output_1.read() == program_output_1.read() and orginal_output_2.read() == program_output_2.read():
+        print("Test case wis-tar - 3 pass")
+        test_case_count += 1
+        print_status = True
+    else:
+        print("Test case wis-tar - 3 fail")
+        print_status = False
+    program_output_1.close()
+    program_output_2.close()
+    original_output_1.close()
+    orginal_output_2.close()
+except:
     print("Test case wis-tar - 3 fail")
     print_status = False
 
-program_output_1.close()
-program_output_2.close()
-original_output_1.close()
-orginal_output_2.close()
+
+
+
+
 print("Total test cases passed:", test_case_count)
 
 print()
@@ -70,7 +77,7 @@ for i in range(1,3):
     program_output = open(filename, "r")
 
     # compare original output and program output
-    if original_output.read() == program_output.read():
+    if original_output.read().strip() == program_output.read().strip():
         print("Test case wis-untar -", i,"pass")
         test_case_count += 1
     else:
