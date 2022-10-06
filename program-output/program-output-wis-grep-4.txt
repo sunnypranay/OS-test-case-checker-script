@@ -1,0 +1,1 @@
+wis-grep: searchterm [file …]
