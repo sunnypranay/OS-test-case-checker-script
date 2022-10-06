@@ -10,7 +10,11 @@ for i in range(1, 5):
     program_output = open(filename, "r")
 
     # compare original output and program output
-    if original_output.read().strip() == program_output.read().strip():
+
+    origFileContent = "".join(original_output.read().strip().split(" "))
+    pmgOutputContent = "".join(program_output.read().strip().split(" "))
+
+    if origFileContent == pmgOutputContent:
         print("Test case wis-grep -", i,"pass")
         test_case_count += 1
     else:
@@ -29,7 +33,10 @@ for i in range(1,3):
     program_output = open(filename, "r")
 
     # compare original output and program output
-    if original_output.read().strip() == program_output.read().strip():
+    origFileContent = "".join(original_output.read().strip().split(" "))
+    pmgOutputContent = "".join(program_output.read().strip().split(" "))
+
+    if origFileContent == pmgOutputContent:
         print("Test case wis-tar -", i,"pass")
         test_case_count += 1
     else:
@@ -77,7 +84,10 @@ for i in range(1,3):
     program_output = open(filename, "r")
 
     # compare original output and program output
-    if original_output.read().strip() == program_output.read().strip():
+    origFileContent = "".join(original_output.read().strip().split(" "))
+    pmgOutputContent = "".join(program_output.read().strip().split(" "))
+
+    if origFileContent == pmgOutputContent:
         print("Test case wis-untar -", i,"pass")
         test_case_count += 1
     else:
