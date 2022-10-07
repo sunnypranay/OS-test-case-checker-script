@@ -1,1 +1,1 @@
-wis-grep: searchterm [file ...]
+
